@@ -28,6 +28,28 @@ function checkEmail(input) {
   }
 }
 
+// Check if phone number is valid
+function checkPhoneNumber(input) {
+  const reg = /^(\+49-|\+49|0)?\d{10}$/;
+  if (reg.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, 'Phone number is not valid');
+  }
+}
+
+
+// Check if ZIP code is valid
+function checkZipCode(input) {
+  const reg = /(?!01000|99999)(0[1-9]\d{3}|[1-9]\d{4})/g;
+  if (reg.test(input.value)) {
+    showSuccess(input);
+  } else {
+    showError(input, 'ZIP code is not valid');
+  }
+}
+
+
 // Check required fields
 function checkRequired(inputArr) {
   inputArr.forEach(function(input) {
